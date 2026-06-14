@@ -1,0 +1,145 @@
+body {
+    font-family: 'Microsoft YaHei', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+}
+
+.header {
+    background-color: #1976D2;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.chart-container {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    height: 400px;
+}
+
+.chart-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.chart {
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* 图片-文字并排行样式 */
+.img-text-row {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.img-col {
+    flex: 0 0 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-col img {
+    width: 100%;
+    max-width: 320px;
+    border-radius: 8px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.img-col img:hover {
+    box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+}
+
+.text-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* 图片放大模态框样式 */
+#imgModal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+#imgModal.show {
+    display: flex;
+}
+
+#imgModalClose {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    font-size: 40px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+#imgModalImg {
+    max-width: 90vw;
+    max-height: 90vh;
+    display: block;
+    margin: auto;
+    box-shadow: 0 0 20px #000;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 800px) {
+    .img-text-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .img-text-row .img-col,
+    .img-text-row .text-col {
+        max-width: 100%;
+        flex: unset;
+    }
+}

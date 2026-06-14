@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杭州安居客房产数据洞察系统</title>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>杭州安居客房产数据分析</h1>
+        <p>基于杭州地区房产数据的多维度分析</p>
+    </div>
+    
+    <div class="container">
+        <div class="dashboard">
+            <!-- 价格区间分布柱状图 -->
+            <div class="chart-container">
+                <div class="chart-title">房产价格区间分布</div>
+                <div id="priceDistribution" class="chart"></div>
+            </div>
+            
+            <!-- 户型分布饼图 -->
+            <div class="chart-container">
+                <div class="chart-title">房产户型分布</div>
+                <div id="layoutDistribution" class="chart"></div>
+            </div>
+            
+            <!-- 区域均价对比雷达图 -->
+            <div class="chart-container">
+                <div class="chart-title">各区房产均价对比(元/㎡)</div>
+                <div id="districtPrice" class="chart"></div>
+            </div>
+            
+            <!-- 建造年份分布折线图 -->
+            <div class="chart-container">
+                <div class="chart-title">房产建造年份分布</div>
+                <div id="yearDistribution" class="chart"></div>
+            </div>
+            
+            <!-- 建造年份与均价关系折线图 -->
+            <div class="chart-container full-width" style="height: 450px;">
+                <div class="chart-title">建造年份与均价关系</div>
+                <div id="priceYearRelation" class="chart"></div>
+            </div>
+            
+            <!-- 房产均价与面积关系散点图 -->
+            <div class="chart-container full-width" style="height: 450px;">
+                <div class="chart-title">房产均价与面积关系</div>
+                <div id="priceAreaRelation" class="chart"></div>
+            </div>
+            
+            <!-- 各小区房源数量TOP10 -->
+            <div class="chart-container full-width" style="height: 450px;">
+                <div class="chart-title">房源数量TOP10小区</div>
+                <div id="communityTop10" class="chart"></div>
+            </div>
+
+            <!-- 三张分析图片展示 -->
+            <!-- 主要特征分布图 -->
+            <div class="chart-container full-width img-text-row">
+                <div class="img-col">
+                    <img class="enlarge-img" data-src="imgs/值特征分布.png" src="imgs/值特征分布.png" alt="主要特征分布图">
+                </div>
+                <div class="text-col">
+                    <div class="chart-title">主要特征分布图</div>
+                    <p>
+                        本图展示了房产数据中面积、均价、建造年份、总楼层等主要特征的分布情况。通过观察这些分布，可以了解市场主流房源的属性特征，及时发现异常或极端值，为后续分析和建模提供基础。大部分房源面积集中在100㎡左右，均价分布较为集中，建造年份以近十年为主，楼层和朝向等特征也呈现明显规律。
+                    </p>
+                </div>
+            </div>
+            <!-- 特征相关性热力图 -->
+            <div class="chart-container full-width img-text-row">
+                <div class="img-col">
+                    <img class="enlarge-img" data-src="imgs/特征相关性热力图.png" src="imgs/特征相关性热力图.png" alt="特征相关性热力图">
+                </div>
+                <div class="text-col">
+                    <div class="chart-title">特征相关性热力图</div>
+                    <p>
+                        本图展示了房产各特征（如面积、房间数、建造年份等）之间的相关性。分析相关性有助于发现影响房价的重要因素，为特征选择和建模提供依据。可以看出，面积与总价、均价、房间数等特征正相关较强，建造年份与房价相关性较弱，部分特征间存在负相关，说明面积和房间数对房价影响较大。
+                    </p>
+                </div>
+            </div>
+            <!-- 未来5年房价预测趋势 -->
+            <div class="chart-container full-width img-text-row">
+                <div class="img-col">
+                    <img class="enlarge-img" data-src="imgs/未来5年房价预测趋势.png" src="imgs/未来5年房价预测趋势.png" alt="未来5年房价预测趋势">
+                </div>
+                <div class="text-col">
+                    <div class="chart-title">未来5年房价预测趋势</div>
+                    <p>
+                        本图基于历史数据和模型预测的未来5年房价总价的变化趋势。通过预测未来房价走势，可以为购房者、投资者和决策者提供参考，辅助判断买卖时机。预测结果显示，未来5年房价可能先小幅上升后逐步回落，2029年有较明显下降趋势，提示市场存在波动风险。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <!-- 图片放大模态框 -->
+    <div id="imgModal">
+        <span id="imgModalClose" title="关闭大图" aria-label="关闭">&times;</span>
+        <img id="imgModalImg" src="" alt="大图">
+    </div>
+</body>
+</html>
